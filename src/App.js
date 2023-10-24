@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Navebar from './components/Navebar'
+import NewsContainer from './components/NewsContainer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+export class App extends Component {
+
+  render() {
+    return (
+      <div>
+        <Router>
+        <Navebar/>
+          <Routes>
+        <Route exact path='/science' element={<NewsContainer key="science" pageSize="9" category="science"/>}/>
+        <Route exact path='/tech' element={<NewsContainer key="technology" pageSize="9" category="technology"/>}/>
+        <Route exact path='/health' element={<NewsContainer key="health" pageSize="9" category="health"/>}/>
+        <Route exact path='/sports' element={<NewsContainer key="sports" pageSize="9" category="sports"/>}/>
+        <Route exact path='/' element={<NewsContainer key="general" pageSize="9" category="general"/>}/>
+       
+        
+       </Routes>
+       </Router>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
