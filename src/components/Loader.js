@@ -1,18 +1,14 @@
-import React, { Component } from 'react'
-import loading from "./loading.gif"
-
-
-export class Loader extends Component {
-     mystyle={
-        height: "70vh"
-    }
-  render() {
+import React from 'react'
+import loading from './loading.gif'
+ const Loader =()=> {
+  
     return (
-      <div className='text-center loader' style={this.mystyle}>
-       <img src={loading} alt="Loading" />
+      <div className='text-center' style={{height: "70vh"}}>
+        <img src={loading} alt='Loader'></img>
+        
       </div>
     )
   }
-}
+
 
 export default Loader
